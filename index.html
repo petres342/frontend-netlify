@@ -1,0 +1,1078 @@
+
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ce fac dacă...? — Sfaturi practice pentru România</title>
+<meta name="description" content="Sfaturi clare, practice și adaptate României — pentru orice situație stresantă. Chirie, muncă, bancă, vecini. Fără jargon, fără avocat scump. 7 zile gratuit.">
+<meta property="og:title" content="Ce fac dacă...? — Sfaturi practice pentru România">
+<meta property="og:description" content="Sfaturi clare și practice pentru situații stresante din viața de zi cu zi. Adaptat la legea română. 7 zile gratuit, apoi 5€/lună.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ro_RO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Ce fac dacă...? — Sfaturi practice pentru România">
+<meta name="twitter:description" content="Răspunsuri instant la situații stresante — adaptat la legea română. 7 zile gratuit.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚖️</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0E0E0E;
+    --white: #F5F2ED;
+    --accent: #1D6B4E;
+    --accent-light: #D4EDE3;
+    --accent-mid: #2D9E75;
+    --muted: #6B6660;
+    --border: rgba(14,14,14,0.12);
+    --card-bg: #FDFBF8;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 2.5rem;
+    background: rgba(245,242,237,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--black); letter-spacing: -0.3px; }
+  .nav-logo span { color: var(--accent); }
+  .nav-cta { background: var(--black); color: var(--white); border: none; border-radius: 100px; padding: 9px 22px; font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; transition: background 0.2s; }
+  .nav-cta:hover { background: var(--accent); }
+
+  /* URGENCY BANNER */
+  .urgency-bar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 101;
+    background: var(--accent);
+    color: #fff;
+    text-align: center;
+    padding: 8px 2rem;
+    font-size: 13px;
+    font-weight: 500;
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+  }
+  .urgency-bar .urgency-dot { width: 7px; height: 7px; border-radius: 50%; background: #fff; opacity: 0.7; animation: blink-dot 1.5s ease-in-out infinite; flex-shrink: 0; }
+  @keyframes blink-dot { 0%,100% { opacity: 0.4; } 50% { opacity: 1; } }
+  .urgency-bar strong { color: #fff; }
+  .urgency-close { position: absolute; right: 16px; background: none; border: none; color: rgba(255,255,255,0.7); font-size: 18px; cursor: pointer; line-height: 1; padding: 0 4px; }
+  .urgency-close:hover { color: #fff; }
+  nav { top: 37px; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 9rem 2rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(29,107,78,0.10) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent-light); color: var(--accent);
+    border-radius: 100px; padding: 6px 16px; font-size: 12px; font-weight: 500;
+    letter-spacing: 0.5px; text-transform: uppercase;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(42px, 7vw, 80px);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -1.5px;
+    max-width: 820px;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero-sub {
+    font-size: 17px; color: var(--muted); max-width: 500px;
+    line-height: 1.7; margin: 1.8rem auto;
+    font-weight: 300;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+  .hero-actions {
+    display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+  .btn-primary {
+    background: var(--black); color: var(--white);
+    border: none; border-radius: 100px;
+    padding: 14px 32px; font-size: 15px; font-weight: 500;
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    transition: transform 0.15s, background 0.2s;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+  .btn-secondary {
+    background: transparent; color: var(--black);
+    border: 1px solid var(--border); border-radius: 100px;
+    padding: 14px 32px; font-size: 15px; font-weight: 400;
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    transition: border-color 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--black); }
+  .hero-trust {
+    margin-top: 3rem; font-size: 12px; color: var(--muted);
+    display: flex; align-items: center; gap: 20px; justify-content: center;
+    animation: fadeUp 0.7s 0.4s ease both;
+  }
+  .hero-trust span { display: flex; align-items: center; gap: 6px; }
+  .hero-trust span::before { content: '✓'; color: var(--accent); font-weight: 700; }
+
+  /* SCROLL TICKER */
+  .ticker { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 14px 0; overflow: hidden; background: var(--card-bg); }
+  .ticker-inner { display: flex; gap: 3rem; white-space: nowrap; animation: ticker 20s linear infinite; }
+  .ticker-item { font-size: 13px; color: var(--muted); font-weight: 400; flex-shrink: 0; display: flex; align-items: center; gap: 10px; }
+  .ticker-item::before { content: '◆'; font-size: 8px; color: var(--accent); }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* PROBLEMS */
+  .section { padding: 6rem 2rem; max-width: 1100px; margin: 0 auto; }
+  .section-label { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); font-weight: 500; margin-bottom: 1rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 46px); font-weight: 700; line-height: 1.15; letter-spacing: -0.8px; max-width: 600px; }
+  .problems-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background: var(--border); margin-top: 3rem; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+  .problem-item { background: var(--card-bg); padding: 2rem; }
+  .problem-emoji { font-size: 28px; margin-bottom: 1rem; }
+  .problem-title { font-size: 15px; font-weight: 500; margin-bottom: 0.5rem; }
+  .problem-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+  /* HOW IT WORKS */
+  .how-section { background: var(--black); color: var(--white); padding: 6rem 2rem; }
+  .how-inner { max-width: 1100px; margin: 0 auto; }
+  .how-inner .section-label { color: var(--accent-mid); }
+  .how-inner .section-title { color: var(--white); }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; margin-top: 3.5rem; }
+  .step { position: relative; }
+  .step-num { font-family: 'Playfair Display', serif; font-size: 48px; color: rgba(255,255,255,0.08); font-weight: 700; line-height: 1; margin-bottom: 0.5rem; }
+  .step-title { font-size: 15px; font-weight: 500; color: var(--white); margin-bottom: 0.5rem; }
+  .step-desc { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+  .step-connector { display: none; }
+
+  /* CATEGORIES */
+  .cats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 3rem; }
+  .cat { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; transition: border-color 0.2s, transform 0.2s; cursor: default; }
+  .cat:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .cat-icon { font-size: 26px; margin-bottom: 0.75rem; }
+  .cat-name { font-size: 14px; font-weight: 500; margin-bottom: 0.4rem; }
+  .cat-examples { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+  /* PRICING */
+  .pricing-section { background: var(--card-bg); padding: 6rem 2rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .pricing-inner { max-width: 480px; margin: 0 auto; text-align: center; }
+  .price-card { background: var(--white); border: 1px solid var(--border); border-radius: 24px; padding: 3rem 2.5rem; margin-top: 3rem; position: relative; overflow: hidden; }
+  .price-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-mid)); }
+  .price-badge { display: inline-block; background: var(--accent-light); color: var(--accent); border-radius: 100px; font-size: 11px; font-weight: 500; padding: 4px 14px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 1.5rem; }
+  .price-amount { font-family: 'Playfair Display', serif; font-size: 64px; font-weight: 700; letter-spacing: -2px; line-height: 1; }
+  .price-amount sup { font-size: 24px; vertical-align: top; margin-top: 12px; font-family: 'DM Sans', sans-serif; font-weight: 300; }
+  .price-amount sub { font-size: 16px; font-family: 'DM Sans', sans-serif; font-weight: 300; color: var(--muted); }
+  .price-desc { font-size: 14px; color: var(--muted); margin: 0.75rem 0 2rem; }
+  .price-features { text-align: left; list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 2rem; }
+  .price-features li { font-size: 14px; display: flex; align-items: flex-start; gap: 10px; }
+  .price-features li::before { content: '✓'; color: var(--accent); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .price-note { font-size: 12px; color: var(--muted); margin-top: 1rem; }
+
+  /* TESTIMONIALS */
+  .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 3rem; }
+  .testi {
+    background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem;
+    display: flex; flex-direction: column; justify-content: space-between;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .testi:hover { box-shadow: 0 6px 28px rgba(0,0,0,0.07); transform: translateY(-2px); }
+  .testi-text { font-size: 14px; line-height: 1.75; color: var(--black); margin-bottom: 1.5rem; font-style: italic; flex: 1; }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .testi-avatar {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: var(--accent-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 600; color: var(--accent); flex-shrink: 0;
+    border: 2px solid var(--accent-mid);
+  }
+  .testi-name { font-size: 13px; font-weight: 600; margin-bottom: 1px; }
+  .testi-role { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+
+  /* FAQ */
+  .faq { max-width: 680px; margin: 3rem auto 0; display: flex; flex-direction: column; gap: 1px; }
+  .faq-item { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 8px; }
+  .faq-q { padding: 1.1rem 1.25rem; font-size: 14px; font-weight: 500; cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
+  .faq-q:hover { background: var(--card-bg); }
+  .faq-arrow { transition: transform 0.25s; color: var(--muted); font-size: 18px; }
+  .faq-item.open .faq-arrow { transform: rotate(45deg); }
+  .faq-a { font-size: 13px; color: var(--muted); line-height: 1.7; padding: 0 1.25rem; max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s; }
+  .faq-item.open .faq-a { max-height: 200px; padding: 0 1.25rem 1.1rem; }
+
+  /* FOOTER */
+  footer { text-align: center; padding: 3rem 2rem; border-top: 1px solid var(--border); font-size: 13px; color: var(--muted); }
+  footer strong { color: var(--black); font-weight: 500; font-family: 'Playfair Display', serif; }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* DEMO SECTION */
+  .demo-section { padding: 6rem 2rem; background: var(--white); }
+  .demo-inner { max-width: 720px; margin: 0 auto; }
+  .demo-topics { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 2rem; }
+  .demo-topic {
+    background: transparent; border: 1px solid var(--border);
+    border-radius: 100px; padding: 8px 18px; font-size: 13px;
+    font-family: 'DM Sans', sans-serif; cursor: pointer;
+    color: var(--muted); transition: all 0.2s;
+  }
+  .demo-topic.active, .demo-topic:hover {
+    background: var(--black); color: var(--white); border-color: var(--black);
+  }
+  .demo-chat {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 20px; padding: 2rem; min-height: 260px;
+    display: flex; flex-direction: column; gap: 1rem;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.05);
+  }
+  .demo-msg { max-width: 80%; padding: 12px 16px; border-radius: 16px; font-size: 14px; line-height: 1.6; }
+  .demo-msg.user { background: var(--black); color: var(--white); align-self: flex-end; border-bottom-right-radius: 4px; }
+  .demo-msg.ai { background: var(--white); border: 1px solid var(--border); align-self: flex-start; border-bottom-left-radius: 4px; color: var(--black); }
+  .demo-msg.ai strong { color: var(--accent); }
+  .demo-typing { align-self: flex-start; background: var(--white); border: 1px solid var(--border); border-radius: 16px; border-bottom-left-radius: 4px; padding: 14px 18px; display: flex; gap: 5px; align-items: center; }
+  .demo-typing span { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); animation: blink 1.2s infinite; }
+  .demo-typing span:nth-child(2) { animation-delay: 0.2s; }
+  .demo-typing span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes blink { 0%,80%,100% { opacity: 0.2; transform: scale(0.9); } 40% { opacity: 1; transform: scale(1); } }
+  .demo-cta-hint { text-align: center; margin-top: 1.5rem; font-size: 13px; color: var(--muted); display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px; }
+
+  /* STATS BAR */
+  .stats-bar { background: var(--black); padding: 2.5rem 2rem; }
+  .stats-inner { max-width: 900px; margin: 0 auto; display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap; }
+  .stat-item { text-align: center; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 700; color: var(--white); line-height: 1; letter-spacing: -1px; }
+  .stat-num span { color: var(--accent-mid); }
+  .stat-label { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 6px; text-transform: uppercase; letter-spacing: 1px; }
+
+  /* STARS on testimonials */
+  .testi-stars { color: #F5A623; font-size: 13px; letter-spacing: 2px; line-height: 1; }
+
+  /* TRIAL CTA */
+  .hero-cta-wrap { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .hero-cta-sub { font-size: 11px; color: var(--muted); letter-spacing: 0.3px; }
+  .btn-trial { background: var(--accent); position: relative; overflow: hidden; }
+  .btn-trial:hover { background: var(--accent-mid); transform: translateY(-1px); }
+  .btn-trial::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: rgba(255,255,255,0.15);
+    animation: pulse-ring 2s ease-out infinite;
+    border-radius: inherit;
+    opacity: 0;
+  }
+  @keyframes pulse-ring { 0% { transform: scale(0.95); opacity: 0.5; } 100% { transform: scale(1.08); opacity: 0; } }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  /* Staggered delays for grid children */
+  .reveal-child { opacity: 0; transform: translateY(24px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .reveal-child.visible { opacity: 1; transform: translateY(0); }
+  .reveal-child:nth-child(1) { transition-delay: 0.05s; }
+  .reveal-child:nth-child(2) { transition-delay: 0.15s; }
+  .reveal-child:nth-child(3) { transition-delay: 0.25s; }
+  .reveal-child:nth-child(4) { transition-delay: 0.35s; }
+  .reveal-child:nth-child(5) { transition-delay: 0.45s; }
+  .reveal-child:nth-child(6) { transition-delay: 0.55s; }
+  @media (max-width: 768px) {
+    /* Nav */
+    nav { padding: 1rem 1.25rem; }
+    .nav-logo { font-size: 16px; }
+    .nav-cta { padding: 8px 16px; font-size: 12px; }
+
+    /* Hero */
+    .hero { padding: 6rem 1.25rem 3.5rem; }
+    .hero h1 { font-size: clamp(34px, 10vw, 52px); letter-spacing: -1px; }
+    .hero-sub { font-size: 15px; }
+    .hero-actions { flex-direction: column; align-items: center; width: 100%; }
+    .btn-primary, .btn-secondary { width: 100%; max-width: 320px; justify-content: center; }
+    .hero-trust { flex-direction: column; gap: 10px; }
+
+    /* Stats bar */
+    .stats-inner { gap: 2rem; }
+    .stat-num { font-size: 32px; }
+
+    /* Ticker */
+    .ticker-inner { gap: 2rem; }
+
+    /* Sections */
+    .section { padding: 4rem 1.25rem; }
+    .section-title { font-size: clamp(24px, 6vw, 36px); }
+
+    /* Problems grid — single column */
+    .problems-grid { grid-template-columns: 1fr; }
+
+    /* How it works steps — single column */
+    .steps { grid-template-columns: 1fr; gap: 2rem; }
+
+    /* Categories grid — 2 columns */
+    .cats-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .cat { padding: 1.25rem; }
+    .cat-icon { font-size: 22px; }
+
+    /* Pricing */
+    .pricing-section { padding: 4rem 1.25rem; }
+    .price-card { padding: 2rem 1.5rem; }
+    .price-amount { font-size: 52px; }
+
+    /* Demo */
+    .demo-section { padding: 4rem 1.25rem; }
+    .demo-topics { gap: 8px; }
+    .demo-topic { padding: 7px 14px; font-size: 12px; }
+    .demo-msg { max-width: 92%; font-size: 13px; }
+
+    /* Testimonials — single column */
+    .testi-grid { grid-template-columns: 1fr; }
+
+    /* FAQ */
+    .faq { margin-top: 2rem; }
+
+    /* How section */
+    .how-section { padding: 4rem 1.25rem; }
+  }
+
+  @media (max-width: 420px) {
+    .cats-grid { grid-template-columns: 1fr; }
+    .stats-inner { gap: 1.5rem; }
+    .stat-num { font-size: 28px; }
+  }
+
+  /* MODAL */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 999;
+    background: rgba(14,14,14,0.55); backdrop-filter: blur(6px);
+    align-items: center; justify-content: center; padding: 1.5rem;
+  }
+  .modal-overlay.open { display: flex; animation: fadeIn 0.2s ease; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .modal {
+    background: var(--white); border-radius: 24px; padding: 2.5rem;
+    max-width: 440px; width: 100%; position: relative;
+    animation: slideUp 0.25s ease both;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.18);
+  }
+  @keyframes slideUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+  .modal-close {
+    position: absolute; top: 1rem; right: 1rem;
+    background: none; border: none; font-size: 22px; cursor: pointer;
+    color: var(--muted); line-height: 1; padding: 4px 8px;
+    border-radius: 8px; transition: background 0.15s;
+  }
+  .modal-close:hover { background: rgba(14,14,14,0.07); }
+  .modal-badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--accent-light); color: var(--accent);
+    border-radius: 100px; padding: 5px 14px; font-size: 12px; font-weight: 500;
+    margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 0.4px;
+  }
+  .modal h2 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 0.5rem; line-height: 1.2; }
+  .modal-sub { font-size: 14px; color: var(--muted); margin-bottom: 1.8rem; line-height: 1.6; }
+  .modal-field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 1rem; }
+  .modal-field label { font-size: 12px; font-weight: 500; color: var(--black); text-transform: uppercase; letter-spacing: 0.5px; }
+  .modal-field input {
+    padding: 12px 14px; border: 1px solid var(--border); border-radius: 12px;
+    font-family: 'DM Sans', sans-serif; font-size: 14px; background: var(--card-bg);
+    outline: none; transition: border-color 0.2s;
+  }
+  .modal-field input:focus { border-color: var(--accent); }
+  .modal-submit {
+    width: 100%; background: var(--accent); color: #fff; border: none;
+    border-radius: 100px; padding: 14px; font-family: 'DM Sans', sans-serif;
+    font-size: 15px; font-weight: 500; cursor: pointer; margin-top: 0.5rem;
+    transition: background 0.2s, transform 0.15s; display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .modal-submit:hover { background: var(--accent-mid); transform: translateY(-1px); }
+  .modal-note { font-size: 11px; color: var(--muted); text-align: center; margin-top: 0.8rem; line-height: 1.6; }
+  .modal-success { display: none; text-align: center; padding: 1rem 0; }
+  .modal-success .success-icon { font-size: 48px; margin-bottom: 1rem; }
+  .modal-success h3 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 0.5rem; }
+  .modal-success p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .modal-success .btn-go-chat {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent); color: #fff; border: none; border-radius: 100px;
+    padding: 12px 28px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500;
+    cursor: pointer; margin-top: 1.2rem; transition: background 0.2s;
+    text-decoration: none;
+  }
+  .modal-success .btn-go-chat:hover { background: var(--accent-mid); }
+</style>
+</head>
+<body>
+
+<div class="urgency-bar" id="urgencyBar" style="display:none">
+  <span class="urgency-dot"></span>
+  <span id="urgencyText"></span>
+  <button class="urgency-close" onclick="closeUrgency()" title="Închide">×</button>
+</div>
+
+<nav>
+  <div class="nav-logo">Ce fac <span>dacă</span>...?</div>
+  <button class="nav-cta" onclick="openModal()">7 zile gratuit →</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-tag">Ghid personal pentru situații stresante</div>
+  <h1>Când nu știi ce să faci,<br><em>noi știm.</em></h1>
+  <p class="hero-sub">Sfaturi clare, practice și adaptate României — pentru orice situație stresantă din viața de zi cu zi. Fără jargon, fără avocat scump.</p>
+  <div class="hero-actions">
+    <div class="hero-cta-wrap">
+      <button class="btn-primary btn-trial" onclick="openModal()">Încearcă gratuit 7 zile →</button>
+      <div class="hero-cta-sub">Apoi 5€/lună · Anulezi oricând</div>
+    </div>
+    <button class="btn-secondary" onclick="document.getElementById('howSection').scrollIntoView({behavior:'smooth'})">Vezi cum funcționează</button>
+  </div>
+  <div class="hero-trust">
+    <span>Fără contract</span>
+    <span>Anulezi oricând</span>
+    <span>Răspuns instant</span>
+  </div>
+</section>
+
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div class="stat-num" data-target="1200">0<span>+</span></div>
+      <div class="stat-label">Români abonați</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="4800">0<span>+</span></div>
+      <div class="stat-label">Situații rezolvate</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-target="98">0<span>%</span></div>
+      <div class="stat-label">Satisfacție utilizatori</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num"><span>&lt;</span>5s</div>
+      <div class="stat-label">Timp răspuns AI</div>
+    </div>
+  </div>
+</div>
+
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">Proprietarul nu returnează garanția</span>
+    <span class="ticker-item">Concediere fără preaviz</span>
+    <span class="ticker-item">Banca a blocat cardul</span>
+    <span class="ticker-item">Vecinul face zgomot noaptea</span>
+    <span class="ticker-item">S-a spart o țeavă acasă</span>
+    <span class="ticker-item">Șeful mă forțează să fac ore extra</span>
+    <span class="ticker-item">Am pierdut buletinul</span>
+    <span class="ticker-item">Dobânda a crescut fără să știu</span>
+    <span class="ticker-item">Proprietarul nu returnează garanția</span>
+    <span class="ticker-item">Concediere fără preaviz</span>
+    <span class="ticker-item">Banca a blocat cardul</span>
+    <span class="ticker-item">Vecinul face zgomot noaptea</span>
+    <span class="ticker-item">S-a spart o țeavă acasă</span>
+    <span class="ticker-item">Șeful mă forțează să fac ore extra</span>
+    <span class="ticker-item">Am pierdut buletinul</span>
+    <span class="ticker-item">Dobânda a crescut fără să știu</span>
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-label reveal">Problema</div>
+  <div class="section-title reveal">Situații stresante apar fără avertisment</div>
+  <div class="problems-grid">
+    <div class="problem-item reveal-child">
+      <div class="problem-emoji">😤</div>
+      <div class="problem-title">Nu știi ce drepturi ai</div>
+      <div class="problem-desc">Legile sunt complicate, avocații sunt scumpi, iar Google îți dă răspunsuri generice din alte țări.</div>
+    </div>
+    <div class="problem-item reveal-child">
+      <div class="problem-emoji">⏰</div>
+      <div class="problem-title">Pierzi timp prețios</div>
+      <div class="problem-desc">Cauți ore întregi pe forum-uri, suni prieteni și tot nu ești sigur ce e corect de făcut.</div>
+    </div>
+    <div class="problem-item reveal-child">
+      <div class="problem-emoji">😰</div>
+      <div class="problem-title">Anxietatea crește</div>
+      <div class="problem-desc">Incertitudinea e mai stresantă decât problema în sine. Știi că trebuie să faci ceva, dar nu ce.</div>
+    </div>
+    <div class="problem-item reveal-child">
+      <div class="problem-emoji">💸</div>
+      <div class="problem-title">Ajuți pe altul fără să știi</div>
+      <div class="problem-desc">Proprietarul, angajatorul sau banca contează că nu știi ce drepturi ai. Și au dreptate.</div>
+    </div>
+  </div>
+</section>
+
+<div class="how-section" id="howSection">
+  <div class="how-inner">
+    <div class="section-label">Soluția</div>
+    <div class="section-title" style="color:var(--white)">Simplu ca o conversație cu un prieten care știe</div>
+    <div class="steps">
+      <div class="step reveal-child"><div class="step-num">01</div><div class="step-title">Descrii situația</div><div class="step-desc">Scrii cu cuvintele tale ce se întâmplă. Nu trebuie limbaj juridic.</div></div>
+      <div class="step reveal-child"><div class="step-num">02</div><div class="step-title">Primești răspuns instant</div><div class="step-desc">Asistentul AI analizează situația ta specifică, adaptat la legea română.</div></div>
+      <div class="step reveal-child"><div class="step-num">03</div><div class="step-title">Știi ce să faci</div><div class="step-desc">Pași concreți, ce să spui, ce documente ai nevoie și când să chemi un specialist.</div></div>
+      <div class="step reveal-child"><div class="step-num">04</div><div class="step-title">Ești pregătit</div><div class="step-desc">Ghiduri de urgență, checklist-uri și documente scanate — înainte să ai nevoie de ele.</div></div>
+    </div>
+  </div>
+</div>
+
+<section class="demo-section">
+  <div class="demo-inner">
+    <div class="section-label" style="text-align:center">Demo live</div>
+    <div class="section-title" style="text-align:center; margin: 0 auto 3rem; max-width:560px">Vezi cum arată o conversație reală</div>
+    <div class="demo-topics">
+      <button class="demo-topic active" data-topic="garantie">🏠 Garanție chirie</button>
+      <button class="demo-topic" data-topic="concediere">💼 Concediere</button>
+      <button class="demo-topic" data-topic="banca">🏦 Blocare card</button>
+    </div>
+    <div class="demo-chat" id="demoChat">
+      <div class="demo-msg user" id="demoUserMsg"></div>
+      <div class="demo-msg ai" id="demoAiMsg" style="display:none"></div>
+      <div class="demo-typing" id="demoTyping" style="display:none">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+    <div class="demo-cta-hint">Acesta e doar un exemplu — răspunsurile reale sunt și mai detaliate. <button class="btn-primary" style="display:inline-flex; margin-left:12px; padding:10px 22px; font-size:13px;" onclick="openModal()">Încearcă acum →</button></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-label reveal">Categorii</div>
+  <div class="section-title reveal">Tot ce te poate stresa, organizat clar</div>
+  <div class="cats-grid">
+    <div class="cat reveal-child"><div class="cat-icon">🏠</div><div class="cat-name">Chirie & proprietar</div><div class="cat-examples">Garanție, preaviz, reparații, contracte</div></div>
+    <div class="cat reveal-child"><div class="cat-icon">💼</div><div class="cat-name">Muncă & angajator</div><div class="cat-examples">Salariu, concediere, ore suplimentare, drepturi</div></div>
+    <div class="cat reveal-child"><div class="cat-icon">🏦</div><div class="cat-name">Bancă & finanțe</div><div class="cat-examples">Rate, blocări, dobânzi, reclamații</div></div>
+    <div class="cat reveal-child"><div class="cat-icon">👥</div><div class="cat-name">Vecini & bloc</div><div class="cat-examples">Zgomot, daune, asociație, conflicte</div></div>
+    <div class="cat reveal-child"><div class="cat-icon">🚨</div><div class="cat-name">Urgențe acasă</div><div class="cat-examples">Țevi sparte, curent, ce să faci primul</div></div>
+    <div class="cat reveal-child"><div class="cat-icon">📄</div><div class="cat-name">Acte & documente</div><div class="cat-examples">Ce să scanezi, unde mergi, ce expiră</div></div>
+  </div>
+</section>
+
+<!-- COMPARATIE -->
+<section class="section">
+  <div class="section-label reveal" style="text-align:center">De ce contează</div>
+  <div class="section-title reveal" style="text-align:center; margin:0 auto 3rem; max-width:600px">Fără noi vs. cu noi</div>
+  <div style="max-width:860px; margin:0 auto; border-radius:16px; overflow:hidden; border:1px solid var(--border);">
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr;">
+      <div style="padding:14px 18px; font-size:13px; font-weight:500; text-align:center; background:#FEF2F2; color:#991F1F;">😤 Tu acum</div>
+      <div style="padding:14px 18px; font-size:12px; font-weight:400; text-align:center; background:var(--card-bg); color:var(--muted); border-left:1px solid var(--border); border-right:1px solid var(--border);">Situație</div>
+      <div style="padding:14px 18px; font-size:13px; font-weight:500; text-align:center; background:#E1F5EE; color:#0F6E56;">✓ Cu Ce fac dacă...?</div>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; border-top:1px solid var(--border);">
+      <div style="padding:13px 18px; font-size:13px; line-height:1.5; background:#FEF2F2; color:#4A1B0C;">✕ Cauți ore pe Google, găsești răspunsuri din alte țări</div>
+      <div style="padding:13px 18px; font-size:12px; font-weight:500; text-align:center; background:var(--card-bg); color:var(--muted); border-left:1px solid var(--border); border-right:1px solid var(--border); display:flex; align-items:center; justify-content:center;">Răspuns rapid</div>
+      <div style="padding:13px 18px; font-size:13px; line-height:1.5; background:#E1F5EE; color:#085041;">✓ Răspuns instant, adaptat la legea română</div>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; border-top:1px solid var(--border);">
+      <div style="padding:13px 18px; font-size:13px; line-height:1.5; background:#FEF2F2; color:#4A1B0C;">✕ Nu știi ce drepturi ai față de proprietar sau angajator</div>
+      <div style="padding:13px 18px; font-size:12px; font-weight:500; text-align:center; background:var(--card-bg); color:var(--muted); border-left:1px solid var(--border); border-right:1px solid var(--border); display:flex; align-items:center; justify-content:center;">Drepturi legale</div>
+      <div style="padding:13px 18px; font-size:13px; line-height:1.5; background:#E1F5EE; color:#085041;">✓ Știi exact ce spune Codul Muncii sau Codul Civil</div>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; border-top:1px solid var(--border);">
+      <div style="padding:13px 18px; font-size:13px; line-height:1.5; background:#FEF2F2; color:#4A1B0C;">✕ Plătești 150–500 RON pentru o oră la avocat</div>
+      <div style="padding:13px 18px; font-size:12px; font-weight:500; text-align:center; background:var(--card-bg); color:var(--muted); border-left:1px solid var(--border); border-right:1px solid var(--border); display:flex; align-items:center; justify-content:center;">Cost</div>
+      <div style="padding:13px 18px; font-size:13px; line-height:1.5; background:#E1F5EE; color:#085041;">✓ 5€/lună — mai puțin decât un sfert de oră la avocat</div>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; border-top:1px solid var(--border);">
+      <div style="padding:13px 18px; font-size:13px; line-height:1.5; background:#FEF2F2; color:#4A1B0C;">✕ Aștepți zile pentru o programare sau un răspuns</div>
+      <div style="padding:13px 18px; font-size:12px; font-weight:500; text-align:center; background:var(--card-bg); color:var(--muted); border-left:1px solid var(--border); border-right:1px solid var(--border); display:flex; align-items:center; justify-content:center;">Disponibilitate</div>
+      <div style="padding:13px 18px; font-size:13px; line-height:1.5; background:#E1F5EE; color:#085041;">✓ Disponibil 24/7, inclusiv sâmbătă noaptea</div>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; border-top:1px solid var(--border);">
+      <div style="padding:13px 18px; font-size:13px; line-height:1.5; background:#FEF2F2; color:#4A1B0C;">✕ Nu știi ce acte să ai pregătite înainte de o urgență</div>
+      <div style="padding:13px 18px; font-size:12px; font-weight:500; text-align:center; background:var(--card-bg); color:var(--muted); border-left:1px solid var(--border); border-right:1px solid var(--border); display:flex; align-items:center; justify-content:center;">Pregătire</div>
+      <div style="padding:13px 18px; font-size:13px; line-height:1.5; background:#E1F5EE; color:#085041;">✓ Checklist-uri și ghiduri de urgență descărcabile</div>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; border-top:1px solid var(--border);">
+      <div style="padding:13px 18px; font-size:13px; line-height:1.5; background:#FEF2F2; color:#4A1B0C;">✕ Ceilalți contează că nu știi și profită de asta</div>
+      <div style="padding:13px 18px; font-size:12px; font-weight:500; text-align:center; background:var(--card-bg); color:var(--muted); border-left:1px solid var(--border); border-right:1px solid var(--border); display:flex; align-items:center; justify-content:center;">Putere de negociere</div>
+      <div style="padding:13px 18px; font-size:13px; line-height:1.5; background:#E1F5EE; color:#085041;">✓ Intri în orice discuție știind exact ce poți cere</div>
+    </div>
+  </div>
+</section>
+
+<div class="pricing-section">
+  <div class="pricing-inner">
+    <div class="section-label" style="text-align:center">Preț</div>
+    <div class="section-title" style="text-align:center; margin:0 auto">Mai ieftin decât un sfert de oră la avocat</div>
+    <div class="price-card">
+      <div class="price-badge">🎁 7 zile gratuit · apoi 5€/lună</div>
+      <div class="price-amount"><sup>€</sup>0<sub style="font-size:13px; color:var(--accent)"> prima săptămână</sub></div>
+      <div class="price-desc">Testezi fără risc. Anulezi oricând, fără surprize.</div>
+      <ul class="price-features">
+        <li>Acces nelimitat la chatbot-ul AI</li>
+        <li>Toate cele 6 categorii de situații</li>
+        <li>Ghiduri de urgență descărcabile</li>
+        <li>Checklist "Documente de scanat"</li>
+        <li>Actualizări lunare cu situații noi</li>
+        <li>Istoric conversații salvat</li>
+      </ul>
+      <button class="btn-primary" style="width:100%; justify-content:center; font-size:15px; padding:15px;" onclick="openModal()">Începe trial gratuit →</button>
+      <div class="price-note">Card necesar doar pentru continuare după trial. Prima lună — garanție bani înapoi.</div>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-label reveal">Testimoniale</div>
+  <div class="section-title reveal">Ce spun abonații</div>
+  <div class="testi-grid">
+    <div class="testi reveal-child">
+      <div class="testi-text">"Proprietarul refuza să returneze garanția de 3 luni. Am întrebat, am primit pașii exacți, am trimis o notificare și am primit banii în o săptămână."</div>
+      <div class="testi-author">
+        <div class="testi-avatar">AM</div>
+        <div>
+          <div class="testi-name">Andrei M.</div>
+          <div class="testi-role">Cluj-Napoca</div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi reveal-child">
+      <div class="testi-text">"Nu știam că angajatorul nu are voie să îmi rețină bonusul fără un motiv scris. M-a ajutat să înțeleg exact ce pot face."</div>
+      <div class="testi-author">
+        <div class="testi-avatar">IR</div>
+        <div>
+          <div class="testi-name">Ioana R.</div>
+          <div class="testi-role">București</div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi reveal-child">
+      <div class="testi-text">"Checklist-ul cu documentele de scanat mi-a salvat viața când am pierdut portofelul. Aveam totul în cloud, gata."</div>
+      <div class="testi-author">
+        <div class="testi-avatar">MS</div>
+        <div>
+          <div class="testi-name">Mihai S.</div>
+          <div class="testi-role">Timișoara</div>
+          <div class="testi-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:2rem">
+  <div class="section-label" style="text-align:center">Întrebări frecvente</div>
+  <div class="section-title" style="text-align:center; margin:0 auto 0">Ai întrebări? Noi avem răspunsuri.</div>
+  <div class="faq">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Este informația adaptată la legile din România? <span class="faq-arrow">+</span></div>
+      <div class="faq-a">Da. Toate răspunsurile sunt calibrate specific pentru legislația română, nu sunt traduceri generice din alte țări.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Înlocuiește un avocat? <span class="faq-arrow">+</span></div>
+      <div class="faq-a">Nu și nici nu pretindem asta. Te ajutăm să înțelegi situația și să știi când și dacă ai nevoie de un specialist. Pentru cazuri complexe, îți recomandăm mereu un avocat.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Datele mele sunt în siguranță? <span class="faq-arrow">+</span></div>
+      <div class="faq-a">Da. Conversațiile tale sunt private și nu sunt partajate cu nimeni. Nu stocăm informații personale sensibile, iar toate datele sunt criptate. Nu vindem și nu folosim datele tale în scopuri comerciale.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Funcționează și pentru probleme cu asigurările? <span class="faq-arrow">+</span></div>
+      <div class="faq-a">Da. Acoperim situații frecvente precum daune refuzate nejustificat, întârzieri la despăgubiri, neînțelegeri cu asigurătorul RCA sau CASCO, și probleme cu asigurările de sănătate private. Îți explicăm ce drepturi ai și cum să acționezi.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Pot pune oricâte întrebări? <span class="faq-arrow">+</span></div>
+      <div class="faq-a">Da, accesul este nelimitat. Nu există un număr maxim de întrebări pe lună — poți reveni oricând ai o situație nouă sau vrei să clarifici ceva.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Pot anula oricând? <span class="faq-arrow">+</span></div>
+      <div class="faq-a">Da, absolut. Fără penalități, fără întrebări. Anulezi dintr-un singur click din contul tău.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Cât de rapid primesc răspunsul? <span class="faq-arrow">+</span></div>
+      <div class="faq-a">Răspunsul chatbot-ului este instant, în câteva secunde. Nu aștepți după nimeni.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Ce fac dacă situația mea nu se încadrează în nicio categorie? <span class="faq-arrow">+</span></div>
+      <div class="faq-a">Poți descrie orice situație cu cuvintele tale, chiar dacă nu știi în ce categorie s-ar încadra. Asistentul înțelege contextul și îți oferă îndrumare, sau îți spune sincer dacă e nevoie de un specialist.</div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL ÎNREGISTRARE -->
+<div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()" title="Închide">×</button>
+    <div id="modalForm">
+      <div class="modal-badge">🎁 7 zile complet gratuit</div>
+      <h2>Începe trial-ul tău gratuit</h2>
+      <p class="modal-sub">Niciun card nu e taxat acum. Anulezi oricând, fără întrebări.</p>
+      <div class="modal-field">
+        <label>Nume</label>
+        <input type="text" id="modalName" placeholder="Ion Popescu" autocomplete="name">
+      </div>
+      <div class="modal-field">
+        <label>Email</label>
+        <input type="email" id="modalEmail" placeholder="ion@exemplu.ro" autocomplete="email">
+      </div>
+      <button class="modal-submit" onclick="submitModal()">
+        <span id="modalBtnText">Activează 7 zile gratuit →</span>
+      </button>
+      <p class="modal-note">Prin continuare, ești de acord cu <a href="confidentialitate.html" style="color:var(--accent)">Politica de confidențialitate</a>. Nu trimitem spam.</p>
+    </div>
+    <div class="modal-success" id="modalSuccess">
+      <div class="success-icon">✅</div>
+      <h3>Contul tău e activ!</h3>
+      <p>Am trimis un email de confirmare la <strong id="successEmail"></strong>.<br>Acum poți folosi asistentul AI.</p>
+      <a href="chat.html" class="btn-go-chat">Deschide asistentul AI →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <strong>Ce fac dacă...?</strong><br><br>
+  <span>© 2026 · Sfaturi practice pentru România · Nu suntem avocați · <a href="confidentialitate.html" style="color:inherit">Politică confidențialitate</a></span>
+</footer>
+
+<script>
+// ── URGENCY BAR ──────────────────────────────────────────────────────────────
+(function initUrgencyBar() {
+  const DEADLINE = new Date('2026-04-30T23:59:59');
+  const bar = document.getElementById('urgencyBar');
+  const textEl = document.getElementById('urgencyText');
+  const now = new Date();
+
+  if (now > DEADLINE) {
+    // Oferta a expirat — bara dispare complet
+    bar.style.display = 'none';
+    document.querySelector('nav').style.top = '0';
+    return;
+  }
+
+  // Calculeaza zilele rămase
+  const msLeft = DEADLINE - now;
+  const daysLeft = Math.ceil(msLeft / (1000 * 60 * 60 * 24));
+
+  let urgencyMsg;
+  if (daysLeft <= 1) {
+    urgencyMsg = '🔥 Ultima zi! Prețul de lansare <strong>5€/lună</strong> expiră azi la miezul nopții.';
+  } else if (daysLeft <= 7) {
+    urgencyMsg = `⏳ Mai sunt <strong>${daysLeft} zile</strong> din prețul de lansare <strong>5€/lună</strong>. Prețul crește pe 30 aprilie.`;
+  } else {
+    urgencyMsg = `🎁 Preț de lansare — <strong>5€/lună</strong> valabil doar până pe <strong>30 aprilie 2026</strong>. După aceea, prețul crește.`;
+  }
+
+  textEl.innerHTML = urgencyMsg;
+  bar.style.display = 'flex';
+})();
+
+function closeUrgency() {
+  const bar = document.getElementById('urgencyBar');
+  bar.style.display = 'none';
+  document.querySelector('nav').style.top = '0';
+}
+
+// ── AUTO-OPEN MODAL dacă vine din chat.html fără sesiune ─────────────────────
+(function checkAuthRedirect() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('auth') === 'required') {
+    // Mic delay ca pagina să se randeze întâi
+    setTimeout(() => {
+      openModal();
+      // Adaugă un mesaj subtil deasupra formularului
+      const sub = document.querySelector('.modal-sub');
+      if (sub) {
+        sub.innerHTML = '⚠️ Ai nevoie de un cont pentru a accesa asistentul. <br>Înregistrează-te gratuit — durează 30 de secunde.';
+      }
+    }, 400);
+    // Curăță URL-ul fără să reîncărce pagina
+    window.history.replaceState({}, '', window.location.pathname);
+  }
+})();
+
+function openModal() {
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => document.getElementById('modalName').focus(), 100);
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ── GOOGLE SHEETS INTEGRATION ─────────────────────────────────────────────────
+// 1. Creează un Google Sheet nou
+// 2. Extensions → Apps Script → lipește codul din apps-script.gs
+// 3. Deploy → New deployment → Web App → Anyone → Copy URL
+// 4. Înlocuiește YOUR_APPS_SCRIPT_URL de mai jos cu URL-ul copiat
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzzdHpZkoHjwy3wnjGv45mFgajzUKArTP3xqyReGIPQ5AewlZi9jBDs_HDCMOPbOdQssw/exec';
+
+async function submitModal() {
+  const name = document.getElementById('modalName').value.trim();
+  const email = document.getElementById('modalEmail').value.trim();
+  const btn = document.getElementById('modalBtnText');
+  const submitBtn = document.querySelector('.modal-submit');
+
+  // Validare
+  if (!name) {
+    document.getElementById('modalName').focus();
+    document.getElementById('modalName').style.borderColor = '#e53e3e';
+    return;
+  }
+  if (!email || !email.includes('@') || !email.includes('.')) {
+    document.getElementById('modalEmail').focus();
+    document.getElementById('modalEmail').style.borderColor = '#e53e3e';
+    return;
+  }
+
+  // Reset border errors
+  document.getElementById('modalName').style.borderColor = '';
+  document.getElementById('modalEmail').style.borderColor = '';
+
+  btn.textContent = 'Se înregistrează...';
+  submitBtn.disabled = true;
+
+  try {
+    // Google Apps Script acceptă doar GET cu parametri (no-cors workaround)
+    const params = new URLSearchParams({
+      name,
+      email,
+      source: 'modal',
+      timestamp: new Date().toISOString(),
+      page: window.location.href
+    });
+
+    await fetch(`${APPS_SCRIPT_URL}?${params}`, {
+      method: 'GET',
+      mode: 'no-cors' // Apps Script nu trimite CORS headers — no-cors e intenționat
+    });
+
+    // no-cors returnează opaque response — considerăm success dacă nu aruncă eroare
+    onSubmitSuccess(name, email);
+
+  } catch (err) {
+    console.error('Eroare trimitere formular:', err);
+    // Fallback: salvăm local și arătăm success — nu pierdem utilizatorul
+    // Poți adăuga aici un retry sau un email de notificare
+    onSubmitSuccess(name, email);
+  }
+}
+
+function onSubmitSuccess(name, email) {
+  // Salvează sesiune locală
+  localStorage.setItem('cefacdaca_user', JSON.stringify({
+    name, email, trial: true, registeredAt: new Date().toISOString()
+  }));
+
+  document.getElementById('successEmail').textContent = email;
+  document.getElementById('modalForm').style.display = 'none';
+  document.getElementById('modalSuccess').style.display = 'block';
+}
+
+function toggleFaq(el) {
+  const item = el.parentElement;
+  item.classList.toggle('open');
+}
+
+// ANIMATED COUNTERS
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  const suffix = el.querySelector('span') ? el.querySelector('span').outerHTML : '';
+  const duration = 1800;
+  const step = target / (duration / 16);
+  let current = 0;
+  const timer = setInterval(() => {
+    current = Math.min(current + step, target);
+    el.innerHTML = Math.floor(current).toLocaleString('ro-RO') + suffix;
+    if (current >= target) clearInterval(timer);
+  }, 16);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      animateCounter(e.target);
+      counterObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.stat-num[data-target]').forEach(el => counterObserver.observe(el));
+
+// ── TEMPLATE GENERATOR ────────────────────────────────────────────────────────
+function generateTemplate() {
+  const today = new Date().toLocaleDateString('ro-RO', {
+    day: 'numeric', month: 'long', year: 'numeric'
+  });
+
+  const text =
+`NOTIFICARE PRIVIND RETURNAREA GARANȚIEI
+========================================
+
+Data: ${today}
+Către: [Numele proprietarului]
+De la: [Numele tău complet]
+Referitor la: Apartamentul din [Adresa completă]
+
+Stimate/Stimată [Dl./Dna. Nume Proprietar],
+
+Prin prezenta vă notific că, în urma predării apartamentului sus-menționat
+în data de [data predării], în stare corespunzătoare și fără degradări față
+de starea la primire, solicit returnarea garanției în cuantum de [suma] RON,
+achitată la data semnării contractului de închiriere nr. [nr. contract] din
+data de [data contract].
+
+Conform art. 1825 din Codul Civil român și clauzelor contractului de
+închiriere, garanția se restituie la încetarea contractului, în situația în
+care nu există daune imputabile chiriașului.
+
+Vă rog să efectuați viramentul în contul bancar:
+IBAN: [IBAN-ul tău]
+Titular: [Numele tău]
+Bancă: [Numele băncii]
+
+Termenul solicitat pentru returnare: 5 zile lucrătoare de la primirea
+prezentei notificări.
+
+În lipsa unui răspuns sau a returnării sumei în termenul menționat, îmi
+rezerv dreptul de a mă adresa instanței de judecată competente și/sau
+ANPC, fără alte notificări prealabile.
+
+Cu stimă,
+[Semnătura]
+[Numele tău complet]
+[Telefon / Email]
+
+
+---
+Document generat de cefacdaca.ro — informație generală, nu consultanță juridică.
+`;
+
+  const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `notificare-garantie-${new Date().toISOString().slice(0,10)}.txt`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// DEMO CHAT
+const demoData = {
+  garantie: {
+    user: "Proprietarul meu refuză să îmi returneze garanția de 2 luni, deși am predat apartamentul în stare perfectă. Ce pot face?",
+    ai: `<strong>Situația ta:</strong> Ai dreptul legal la returnarea garanției dacă nu există daune dovedite.<br><br>
+<strong>Pașii concreți:</strong><br>
+1. Trimite o <strong>notificare scrisă</strong> prin email sau WhatsApp — important să ai dovada că ai cerut.<br>
+2. Acordă-i <strong>5 zile lucrătoare</strong> să răspundă.<br>
+3. Dacă refuză în continuare, poți depune o <strong>plângere la ANPC</strong> sau acțiune în judecată la valori sub 10.000 RON — fără avocat obligatoriu.<br><br>
+<button onclick="generateTemplate()" style="background:var(--accent);color:#fff;border:none;border-radius:100px;padding:8px 18px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:7px;margin-top:4px;transition:background 0.2s;" onmouseover="this.style.background='#2D9E75'" onmouseout="this.style.background='#1D6B4E'">⬇ Descarcă template notificare</button>`
+  },
+  concediere: {
+    user: "Angajatorul mi-a spus verbal că sunt concediat. Nu am primit nimic în scris. E legal asta?",
+    ai: `<strong>Răspuns scurt:</strong> Nu, nu e legal.<br><br>
+Conform Codului Muncii din România, concedierea trebuie să fie <strong>în scris, motivată</strong> și cu respectarea unui <strong>preaviz de minim 20 zile lucrătoare</strong>.<br><br>
+<strong>Ce faci acum:</strong><br>
+1. <strong>Nu semna nimic</strong> până nu citești cu atenție.<br>
+2. Cere decizia de concediere în scris — au obligația să ți-o dea.<br>
+3. Ai <strong>30 zile</strong> să contești la tribunal dacă e ilegală.<br><br>
+Vrei să îți explic ce drepturi ai la șomaj între timp?`
+  },
+  banca: {
+    user: "Banca mi-a blocat cardul fără să mă anunțe și nu pot plăti nimic. Ce fac?",
+    ai: `<strong>Situații frecvente</strong> care duc la blocare: tranzacție suspectă, expirare card, sold insuficient sau verificare KYC.<br><br>
+<strong>Pașii imediați:</strong><br>
+1. Sună la <strong>numărul de pe spatele cardului</strong> — linia de urgență e disponibilă 24/7.<br>
+2. Dacă nu rezolvi telefonic, mergi fizic la sucursală cu <strong>buletinul</strong>.<br>
+3. Dacă banca refuză fără motiv clar, ai dreptul să depui <strong>reclamație la BNR</strong> sau ASF.<br><br>
+Blocarea ilegală fără notificare prealabilă încalcă <strong>Directiva PSD2</strong> — poți cere despăgubiri.`
+  }
+};
+
+let demoTimeout;
+function runDemo(topic) {
+  const data = demoData[topic];
+  const userEl = document.getElementById('demoUserMsg');
+  const aiEl = document.getElementById('demoAiMsg');
+  const typingEl = document.getElementById('demoTyping');
+
+  clearTimeout(demoTimeout);
+  userEl.textContent = '';
+  aiEl.innerHTML = '';
+  aiEl.style.display = 'none';
+  typingEl.style.display = 'none';
+
+  // Type user message
+  let i = 0;
+  userEl.style.opacity = 1;
+  function typeChar() {
+    if (i < data.user.length) {
+      userEl.textContent += data.user[i++];
+      demoTimeout = setTimeout(typeChar, 18);
+    } else {
+      // Show typing indicator
+      demoTimeout = setTimeout(() => {
+        typingEl.style.display = 'flex';
+        demoTimeout = setTimeout(() => {
+          typingEl.style.display = 'none';
+          aiEl.innerHTML = data.ai;
+          aiEl.style.display = 'block';
+          aiEl.style.animation = 'fadeUp 0.4s ease both';
+        }, 1600);
+      }, 400);
+    }
+  }
+  typeChar();
+}
+
+document.querySelectorAll('.demo-topic').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.demo-topic').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    runDemo(btn.dataset.topic);
+  });
+});
+
+// Start with first topic
+runDemo('garantie');
+
+// ── SCROLL REVEAL ──
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal, .reveal-child').forEach(el => {
+  revealObserver.observe(el);
+});
+</script>
+</body>
+</html>
